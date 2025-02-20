@@ -1,6 +1,0 @@
-Garang Buke|Programming Basics|submitted
-Tim Chumba|Web Development|not submitted
-Sid Bausffs|Database Design|submitted
-Emma Hilton|Python Project|not submitted
-Charlie Brown|Java Assignment|submitted
-Davis Buda|Network Security|not submitted
