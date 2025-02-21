@@ -16,11 +16,31 @@
     ```bash
     ./create_environment.sh
     ```
+    
+## Script Explanations
 
-The script will:
-- Create necessary directories if they don't exist
-- Set up required environment configurations
-- Initialize any required dependencies
+### create_environment.sh  
+- Sets up the directory structure  
+- Creates the subdirectories and files  
+- Configures file permissions  
+- Takes user input for ownership
+
+### startup.sh  
+- Serves as the entry point for the application  
+- Validates required files and dependencies  
+- Sources configuration and functions  
+- Launches the reminder system
+
+#### reminder.sh  
+- Processes submission status  
+- Displays reminders for pending submissions  
+- Reads data from submissions.txt  
+- Utilizes configurations from config.env
+
+#### functions.sh  
+- Contains the functionality for submission checking  
+- Implements various utility functions  
+- Handles data processing
 
 ## Notes
 - Ensure you have appropriate permissions before running the script
