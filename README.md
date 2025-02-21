@@ -1,38 +1,28 @@
-# Environment Setup Script Documentation
-
-This document explains how to use the `create_environment.sh` script to set up your environment.
+# Project Setup Guide
 
 ## Prerequisites
-
 - Bash shell environment
-- Appropriate permissions to execute shell scripts
+- Permission to execute shell scripts
 
-## Usage
+## Environment Setup
 
+### Using the Setup Script
 1. Make the script executable:
-```bash
-chmod +x create_environment.sh
-```
+    ```bash
+    chmod +x create_environment.sh
+    ```
 
-2. Run the script:
-```bash
-./create_environment.sh
-```
+2. Run the setup script:
+    ```bash
+    ./create_environment.sh
+    ```
 
-## Description
-
-The script performs the following operations:
-- Creates necessary directories for the application
-- Sets up required environment variables
-- Configures initial settings
-
-## Troubleshooting
-
-If you encounter permission errors:
-1. Verify you have execution permissions
-2. Check if you're running the script with appropriate user privileges
+The script will:
+- Create necessary directories if they don't exist
+- Set up required environment configurations
+- Initialize any required dependencies
 
 ## Notes
-
-- Backup any existing configurations before running the script
-- Make sure to review the script settings before execution
+- Ensure you have appropriate permissions before running the script
+- The script should be executed from the project's root directory
+- If you encounter any permission issues, contact your system administrator

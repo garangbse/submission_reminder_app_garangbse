@@ -1,12 +1,15 @@
 #!/bin/bash
 
+# Prompt user for their name
 read -p "what is your name: " yourname
 
+# Create the main directory and subdirectories
 mkdir -p submission_reminder_$yourname/app
 mkdir -p submission_reminder_$yourname/modules
 mkdir -p submission_reminder_$yourname/assets
 mkdir -p submission_reminder_$yourname/config
 
+# Create the necessary files
 touch submission_reminder_$yourname/app/reminder.sh
 touch submission_reminder_$yourname/modules/functions.sh
 touch submission_reminder_$yourname/assets/submissions.txt
@@ -19,7 +22,7 @@ chmod +x submission_reminder_$yourname/assets/submissions.txt
 chmod +x submission_reminder_$yourname/config/config.env
 chmod +x create_environment.sh
 
-#declaring the main directory
+#making a variable for the main directory
 orig_dir="submission_reminder_$yourname"
 
 # adding the source code to the reminder.sh file
@@ -43,28 +46,39 @@ EOL
 
 # Creating sample student records in submissions.txt
 cat > $orig_dir/assets/submissions.txt << EOL
-Garang Buke, Programming Basics, submitted
-Tim Chumba, Web Development, not submitted
+student, assignment, submission status
+Chinemerem, Shell Navigation, not submitted
+Chiagoziem, Git, submitted
+Divine, Shell Navigation, not submitted
+Anissa, Shell Basics, submitted
+Garang, Programming Basics, submitted
+Tim, Shell Navigation, not submitted
 Sid Bausffs, Database Design, submitted
-Emma Hilton, Python Project, not submitted
-Charlie Brown, Java Assignment, submitted
-Davis Buda, Network Security, not submitted
+Emma, Shell Navigation, not submitted
+Celine, Shell Navigation, submitted
+Davis, Network Security, not submitted
+George, Web Development, submitted
+Charlie, Shell Navigation, submitted
 EOL
 
 # adding the source code to the config.env file
 cat > $orig_dir/config/config.env << EOL
-ASSIGNMENT="Web Development"
+ASSIGNMENT="Shell Navigation"
 DAYS_REMAINING=2
 EOL
 
 # adding the source code to the functions.sh file
 cat > $orig_dir/modules/functions.sh << 'EOL'
+
 #!/bin/bash
 
 # Function to read submissions file and output students who have not submitted
 function check_submissions {
     local submissions_file=$1
     echo "Checking submissions in $submissions_file"
+    
+    # Source config file to get ASSIGNMENT variable
+    source "./config/config.env"
 
     # Skip the header and iterate through the lines
     while IFS=, read -r student assignment status; do
@@ -87,7 +101,6 @@ cat > $orig_dir/startup.sh << 'EOL'
 
 # Navigating to the main directory
 cd "$(dirname "$0")"
-echo "Current directory: $(pwd)"
 
 # Stating the necessary files
 necessary_files=("app/reminder.sh" "modules/functions.sh" "assets/submissions.txt" "config/config.env")
@@ -112,4 +125,3 @@ EOL
 
 # Make startup script executable and run it once
 chmod +x $orig_dir/startup.sh
-./$orig_dir/startup.sh
